@@ -1,8 +1,18 @@
+import 'package:dependency_router/extensions.dart';
 import 'package:dependency_router/router_controller.dart';
 import 'package:ecomercio/data/model/product.dart';
+import 'package:ecomercio/presentation/controller/user_session.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:signals/signals_flutter.dart';
 
 class HomeController extends RouterController {
+  final BuildContext context;
+  late final UserSession userSession;
+
+  HomeController({required this.context}) {
+    userSession = context.getInGlobal();
+  }
+
   final productList = signal<List<Product>>([
     Product(
       name: "Café",

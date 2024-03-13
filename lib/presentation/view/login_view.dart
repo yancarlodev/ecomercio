@@ -1,22 +1,9 @@
-import 'package:dependency_router/extensions.dart';
 import 'package:dependency_router/router_view.dart';
 import 'package:ecomercio/presentation/controller/login_controller.dart';
-import 'package:ecomercio/presentation/controller/user_session.dart';
 import 'package:flutter/material.dart';
 
 class LoginView extends RouterView<LoginController> {
-  late final UserSession userSession;
-
-  LoginView({super.key, required super.context}) {
-    userSession = context.get();
-  }
-
-  void handleLogin(context) {
-    userSession.username.value = controller.loginInput.text;
-    userSession.accessToken.value = "SAD4SDAFASCVGADFASDOVI@";
-
-    Navigator.popAndPushNamed(context, "/home");
-  }
+  const LoginView({super.key, required super.context});
 
   @override
   Widget build(BuildContext context) {
@@ -37,7 +24,7 @@ class LoginView extends RouterView<LoginController> {
                   decoration: const InputDecoration(hintText: "Senha"),
                 ),
                 ElevatedButton(
-                  onPressed: () => handleLogin(context),
+                  onPressed: () => controller.handleLogin(),
                   child: const Text("Entrar"),
                 )
               ],

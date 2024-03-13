@@ -9,7 +9,7 @@ void main() {
   runApp(
     Dependencies(
       routerApp: RouterApp(
-        navigatorObservers: [
+        customNavigatorObservers: [
           CustomNavigator(),
         ],
         configRoutes: [
